@@ -1,6 +1,34 @@
-function main() {
+function Main(data) {
+  this.data = data || [];
+  this.sorted = false;
+  this.swapCount = 0;
 
-  this.bubbleSort = function bubbleSort(data) {
+  this.first = function first() {
+    if (!this.sorted) {
+      this.bubbleSort();
+    }
+
+    return this.data[0].toString();
+  }
+
+  this.last = function last() {
+    if (!this.sorted) {
+      this.bubbleSort();
+    }
+
+    return this.data[this.data.length-1].toString();
+  }
+
+  this.swaps = function swaps() {
+    if (!this.sorted) {
+      this.bubbleSort();
+    }
+
+    return this.swapCount.toString();
+  }
+
+  this.bubbleSort = function bubbleSort() {
+    var data = this.data;
     var endPosition = data.length -1;
     var swapPosition;
 
@@ -16,15 +44,16 @@ function main() {
           data[i] = y;
           data[i+1] = tmp;
           swapPosition = i;
+          this.swapCount++;
         }
       } // end for
 
       endPosition = swapPosition;
     }
 
-    console.log("data", data.toString());
+    this.sorted = true;
     return data.toString();
   }
 }
 
-module.exports = new main();
+module.exports = Main;

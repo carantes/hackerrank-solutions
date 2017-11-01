@@ -6,7 +6,6 @@ function Node(value) {
 
 function BinarySearchTree() {
   this.root = null;
-  this.deepth = 0;
 
   this.getHeight = function (node){
     if(!node) return -1;

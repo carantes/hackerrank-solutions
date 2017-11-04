@@ -50,7 +50,6 @@ function main() {
           break;
         }
       }
-      
       current = next;
     }
 
